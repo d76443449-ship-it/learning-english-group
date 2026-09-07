@@ -1,1 +1,41 @@
-<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Learning English Group</title><link rel="stylesheet" href="style.css"></head><body><header><h1>Learning English Group</h1><p>English Moja — 25 Classes</p></header><main><h2>Choose Your Class</h2><input id="s" placeholder="Search class"><div id="grid"></div></main><script type="module" src="app.js"></script></body></html>
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>English Moja — Learning English Group</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader-orb"><span></span><span></span><span></span></div>
+  <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+</div>
+
+<div class="orb-field">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner" id="heroInner">
+    <h1 class="title">English Moja</h1>
+    <p class="subtitle">Learning English Group এর ভিডিও ক্লাস — নিজের সময়ে, নিজের ছন্দে শিখুন।</p>
+    <p class="stat-line" id="stat"></p>
+    <div class="search-wrap">
+      <input id="s" placeholder="ক্লাস খুঁজুন…" aria-label="Search class">
+    </div>
+  </div>
+</header>
+
+<main>
+  <h2 class="section-title">Choose Your Class</h2>
+  <div id="grid"></div>
+</main>
+
+<script src="loader.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
