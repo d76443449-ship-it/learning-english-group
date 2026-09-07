@@ -3,7 +3,7 @@
 A simple, fast video-class site for the group's 25 English lessons.
 
 ## What's new in this version
-- Your uploaded chalkboard "ENGLISH" doodle art is now the site's background — heavily blurred and darkened behind everything, so it sets the mood without fighting the content
+- Your uploaded chalkboard "ENGLISH" doodle art is now the site's background — heavily blurred and darkened behind everything, so it sets the mood without fighting the content. The image is embedded directly inside `style.css` (as base64), so there's no separate image file or folder to upload — just these files, flat, in the repo.
 - Cards, search box, and panels are now a stronger frosted-glass so text stays crisp over the busier background
 - Dark, glassmorphic "3D web" redesign — floating gradient orbs, glass-blur panels, an extruded 3D heading (Space Grotesk + Inter)
 - Amber / teal / rose color grading (previously violet/cyan/pink)
@@ -21,9 +21,10 @@ A simple, fast video-class site for the group's 25 English lessons.
 - `index.html` / `app.js` — class list + search
 - `class.html` / `class.js` — single class video page
 - `videos.js` — the list of classes and their Google Drive file IDs (edit this to add/update videos)
-- `style.css` — all styling
+- `style.css` — all styling, plus the background photo embedded inside it
 - `loader.js` — shows the loading animation once per browser session
-- `assets/chalkboard-bg.jpg` — the background image used behind the whole site (replace this file with any image of the same name to change the background)
+
+To change the background image later, ask for it to be re-embedded into `style.css` — there's no separate image file to manage.
 
 ## Adding or updating a video
 Open `videos.js` and set the Google Drive file ID for that class number, e.g.:
