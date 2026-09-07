@@ -3,8 +3,8 @@
 :root{
   --bg:#0C0A11;
   --bg-alt:#14101C;
-  --glass:rgba(255,255,255,.045);
-  --glass-hi:rgba(255,255,255,.09);
+  --glass:rgba(10,8,15,.5);
+  --glass-hi:rgba(10,8,15,.72);
   --border:rgba(255,255,255,.11);
   --border-hi:rgba(255,255,255,.22);
   --violet:#F2A93C;
@@ -64,15 +64,39 @@ a{color:inherit}
 .loader-bar{width:140px;height:2px;background:var(--border);border-radius:2px;overflow:hidden}
 .loader-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--violet),var(--cyan));transition:width .8s ease}
 
+/* =============== Photo background (blurred chalkboard art) =============== */
+.bg-photo{
+  position:fixed;inset:0;z-index:-1;
+  overflow:hidden;
+}
+.bg-photo::before{
+  content:"";
+  position:absolute;
+  inset:-30px;
+  background-image:url('assets/chalkboard-bg.jpg');
+  background-size:cover;
+  background-position:center;
+  filter:blur(9px) brightness(.42) saturate(1.05);
+  transform:scale(1.06);
+}
+.bg-photo::after{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(12,10,17,.35) 0%, rgba(12,10,17,.82) 65%, var(--bg) 100%),
+    linear-gradient(180deg, rgba(12,10,17,.15), var(--bg) 92%);
+}
+
 /* =============== Background orbs =============== */
 .orb-field{
   position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  mix-blend-mode:soft-light;
 }
 .orb{
   position:absolute;
   border-radius:50%;
   filter:blur(70px);
-  opacity:.35;
+  opacity:.5;
   will-change:transform;
 }
 .orb1{width:420px;height:420px;background:var(--violet);top:-140px;left:-100px;animation:float1 16s ease-in-out infinite}
@@ -89,6 +113,14 @@ header.hero{
   padding:80px 24px 60px;
   text-align:center;
   perspective:1000px;
+}
+header.hero::before{
+  content:"";
+  position:absolute;
+  inset:-40px 10% auto;
+  height:340px;
+  background:radial-gradient(closest-side, rgba(12,10,17,.55), transparent 75%);
+  z-index:-1;
 }
 .hero-inner{
   transition:transform .15s ease-out;
@@ -154,7 +186,7 @@ input#s{
   border:1px solid var(--border);
   border-radius:30px;
   outline:none;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(18px);
   transition:border-color .25s, box-shadow .25s, background .25s;
 }
 input#s::placeholder{color:var(--text-dim)}
@@ -197,7 +229,7 @@ h2.section-title{
   padding:20px 18px;
   text-decoration:none;
   color:var(--text);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(16px);
   transform-style:preserve-3d;
   opacity:0;
   transform:rotateY(-70deg);
@@ -265,7 +297,7 @@ h2.section-title{
   background:var(--glass);
   border:1px solid var(--border-hi);
   border-radius:50%;
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(16px);
   background-image:linear-gradient(135deg, rgba(242,169,60,.25), rgba(45,212,166,.15));
   animation:badgeSpin 7s ease-in-out infinite;
 }
@@ -306,7 +338,7 @@ h1#title{
   color:var(--text);
   font-size:.95rem;
   background:var(--glass);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(16px);
   transition:border-color .25s, background .25s, transform .25s;
 }
 .pager a:hover,.pager a:focus-visible{border-color:var(--violet);background:var(--glass-hi);transform:translateY(-3px)}
